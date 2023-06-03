@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h2>{{ title }}</h2>
+  <h2>当前计数:{{ counter }}</h2>
+  <button @click="increment">+1</button>
+  <button @click="decrement">-1</button>
+  <HelloWorld></HelloWorld>
+  <hello-world></hello-world>
 </template>
 
 <script>
+// 导入需要的组件
 import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
+export default (await import('vue')).defineComponent({
+  // 注册局部组件
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+  },
+  data() {
+    return {
+      title: '计数器',
+      counter: 0,
+    }
+  },
+  methods: {
+    increment() {
+      this.counter++
+    },
+    decrement() {
+      this.counter--
+    },
+  },
+})
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
