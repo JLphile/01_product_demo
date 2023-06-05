@@ -1,16 +1,17 @@
 <template>
-  <h2>This is Hello World component</h2>
-  <h3>{{ title }}</h3>
+  <h2 class="title">{{ title }}</h2>
+  <p>This is AppHeader.vue</p>
 </template>
 
 <script>
 export default (await import('vue')).defineComponent({
   data() {
     return {
-      title: 'Hello World',
+      title: 'AppHeader',
     }
   },
 })
+
 </script>
 
 <style scoped></style>

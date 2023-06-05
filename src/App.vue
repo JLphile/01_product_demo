@@ -1,36 +1,25 @@
 <template>
-  <h2>{{ title }}</h2>
-  <h2>当前计数:{{ counter }}</h2>
-  <button @click="increment">+1</button>
-  <button @click="decrement">-1</button>
-  <HelloWorld></HelloWorld>
-  <hello-world></hello-world>
+  <h2 class="title">This is App.vue</h2>
+  <AppHeader></AppHeader>
+  <app-header></app-header>
 </template>
 
 <script>
-// 导入需要的组件
-import HelloWorld from './components/HelloWorld.vue'
+import { defineComponent } from 'vue'
+import AppHeader from './components/AppHeader'
 
-export default (await import('vue')).defineComponent({
-  // 注册局部组件
+export default defineComponent({
+  name: 'App',
   components: {
-    HelloWorld,
-  },
-  data() {
-    return {
-      title: '计数器',
-      counter: 0,
-    }
-  },
-  methods: {
-    increment() {
-      this.counter++
-    },
-    decrement() {
-      this.counter--
-    },
+    AppHeader,
   },
 })
+
+
 </script>
 
-<style></style>
+<style scoped>
+.title {
+  color: red;
+}
+</style>
